@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom'
+import { NavLink} from 'react-router-dom'
 
 const Navbar = () => {
   return (
@@ -26,50 +26,46 @@ const Navbar = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <Link to='/'>Home</Link>
+              <NavLink className="${isActive ? 'text-blue-500' : 'text-gray-500'}" to='/'>Home</NavLink>
             </li>
             <li tabIndex={0}>
-              <a className="justify-between">
-               All Toys
-              </a>
+              <NavLink>All Toys</NavLink>
             </li>
             <li>
-              <a>My Toys</a>
+              <NavLink>My Toys</NavLink>
             </li>
             <li>
-              <a>Add a Toys</a>
+              <NavLink>Add a Toys</NavLink>
             </li>
             <li>
-              <a>Blogs</a>
+              <NavLink to='/blogs'>Blogs</NavLink>
             </li>
             <li>
-              <Link to="/login">Login</Link>
+              <NavLink to='/login'>Login</NavLink>
             </li>
           </ul>
         </div>
         <a className="btn btn-ghost normal-case text-2xl font-bold">Babys Car <img src="logo.png" alt="" /></a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+        <ul className="menu menu-horizontal px-1 gap-4">
           <li>
-            <Link to='/'>Home</Link>
-          </li>
-          <li tabIndex={0}>
-            <a>
-             All Toys
-            </a>
+            <NavLink to='/'>Home</NavLink>
           </li>
           <li>
-            <a>My Toys</a>
+            <NavLink>All Toys</NavLink>
           </li>
           <li>
-            <a>Add a Toys</a>
+            <NavLink>My Toys</NavLink>
           </li>
           <li>
-            <a>Blogs</a>
+            <NavLink>Add a Toys</NavLink>
           </li>
           <li>
-            <Link to="/login">Login</Link>
+            <NavLink to="/blogs">Blogs</NavLink>
+          </li>
+          <li>
+            <NavLink to="/login">Login</NavLink>
           </li>
         </ul>
       </div>
