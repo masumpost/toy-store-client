@@ -1,6 +1,18 @@
 import {Link} from 'react-router-dom'
 
 const Register = () => {
+
+    const handelRegister = event =>{
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const photo = form.photo.value;
+        const register = {name, email, password, photo}
+        console.log(register);
+    }
+
     return (
         <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row-reverse">
@@ -13,16 +25,29 @@ const Register = () => {
           </p>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <form onSubmit={handelRegister}>
           <div className="card-body">
           <h1 className="text-2xl font-bold text-center">Please Register</h1>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Name</span>
+              </label>
+              <input
+                type="text"
+                placeholder="name"
+                className="input input-bordered"
+                name='name'
+              />
+            </div>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
               </label>
               <input
-                type="text"
+                type="email"
                 placeholder="email"
                 className="input input-bordered"
+                name='email'
               />
             </div>
             <div className="form-control">
@@ -30,21 +55,29 @@ const Register = () => {
                 <span className="label-text">Password</span>
               </label>
               <input
-                type="text"
+                type="password"
                 placeholder="password"
                 className="input input-bordered"
+                name='password'
               />
+            </div>
+            <div className="form-control">
               <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
+                <span className="label-text">Photo Url</span>
               </label>
+              <input
+                type="text"
+                placeholder="photo"
+                className="input input-bordered"
+                name='photo'
+              />
             </div>
             <div className="form-control mt-6">
               <input className='btn btn-primary' type="submit" value="Register" />
             </div>
-            <p className='my-2'><h5>New in Babys toy? <span className='font-bold'><Link to="/login">Login</Link></span></h5></p>
+            <p className='my-2'><>Already Have an account? <span className='font-bold'><Link to="/login">Login</Link></span></></p>
           </div>
+          </form>
         </div>
       </div>
     </div>
