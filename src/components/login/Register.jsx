@@ -1,9 +1,11 @@
-const Login = () => {
-  return (
-    <div className="hero min-h-screen bg-base-200">
+import {Link} from 'react-router-dom'
+
+const Register = () => {
+    return (
+        <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold">Login now!</h1>
+          <h1 className="text-5xl font-bold">Register now!</h1>
           <p className="py-6">
             Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
             excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
@@ -12,6 +14,7 @@ const Login = () => {
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <div className="card-body">
+          <h1 className="text-2xl font-bold text-center">Please Register</h1>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -38,13 +41,14 @@ const Login = () => {
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Login</button>
+              <input className='btn btn-primary' type="submit" value="Register" />
             </div>
+            <p className='my-2'><h5>New in Babys toy? <span className='font-bold'><Link to="/login">Login</Link></span></h5></p>
           </div>
         </div>
       </div>
     </div>
-  );
+    );
 };
 
-export default Login;
+export default Register;
