@@ -1,10 +1,12 @@
 import { useLoaderData } from "react-router-dom";
 import MyRow from "../pages/MyRow";
+import { useState } from "react";
 
 const MyToys = () => {
 
-    const toys = useLoaderData();
-    console.log(toys);
+    const loadedToys = useLoaderData();
+
+    const [toys, setToys] = useState(loadedToys)
 
     return (
         <div>
@@ -29,7 +31,12 @@ const MyToys = () => {
             <tbody>
               {/* row 1 */}
              {
-                toys.map(toy => <MyRow key={toy._id} toy={toy}></MyRow>)
+                toys.map(toy => <MyRow
+                     key={toy._id}
+                     toy={toy}
+                     toys={toys}
+                     setToys={setToys}
+                     ></MyRow>)
              }
             </tbody>
           </table>

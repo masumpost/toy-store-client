@@ -1,9 +1,47 @@
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Update = () => {
   const toys = useLoaderData();
 
-  const { _id, sellerName, name, subCategory, price, quantity } = toys;
+  const { _id, name, price, quantity, description } = toys;
+
+
+  const handelUpdateToy = event => {
+    event.preventDefault()
+    const form = event.target;
+    const price = form.price.value;
+    const quantity = form.quantity.value;
+    const description = form.description.value;
+
+    const updateToy = { name,   price,quantity, description};
+    
+    console.log(updateToy);
+
+
+    fetch(`http://localhost:5000/toys/${_id}`, {
+        method:'PUT',
+        headers: {
+            'content-type':'application/json'
+        },
+        body: JSON.stringify(updateToy)
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+        if(data.modifiedCount > 0){
+            Swal.fire({
+                title: 'success!',
+                text: 'Toy Updated SuccessFully',
+                icon: 'success',
+                confirmButtonText: 'Cool'
+              })
+        }
+    })
+}
+
+
+
 
   return (
     <div>
@@ -11,7 +49,7 @@ const Update = () => {
         Updating the toy of : {name}
       </h4>
 
-      <form>
+      <form onSubmit={handelUpdateToy}>
         {/* 1 */}
         <div className="form-control">
           <label className="label">
@@ -23,6 +61,7 @@ const Update = () => {
               placeholder="Price"
               className="input input-bordered w-full"
               name="price"
+              defaultValue={price}
             />
           </label>
         </div>
@@ -38,6 +77,7 @@ const Update = () => {
               placeholder="quantity"
               className="input input-bordered w-full"
               name="quantity"
+              defaultValue={quantity}
             />
           </label>
         </div>
@@ -50,9 +90,10 @@ const Update = () => {
           <label className="input-group">
             <input
               type="text"
-              placeholder="details"
+              placeholder="description"
               className="input input-bordered w-full"
-              name="details"
+              name="description"
+              defaultValue={description}
             />
           </label>
         </div>

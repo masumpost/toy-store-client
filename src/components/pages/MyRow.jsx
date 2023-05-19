@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const MyRow = ({ toy }) => {
+const MyRow = ({ toy, toys, setToys }) => {
   const { _id, sellerName, name, subCategory, price, quantity } = toy;
 
   const handelDelete = (_id) => {
@@ -24,6 +24,8 @@ const MyRow = ({ toy }) => {
           .then((data) => {
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your toy has been deleted.", "success");
+              const remaining = toys.filter(ts => ts._id !== _id);
+              setToys(remaining);
             }
           });
       }
