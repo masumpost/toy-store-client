@@ -7,6 +7,7 @@ import Blogs from "../components/pages/Blogs";
 import AddAToys from "../components/home/AddAToys";
 import MyToys from "../components/home/MyToys";
 import AllToys from "../components/home/AllToys";
+import Update from "../components/pages/Update";
 
 const router = createBrowserRouter([
     {
@@ -42,6 +43,11 @@ const router = createBrowserRouter([
           path:'/allToys',
           element:<AllToys></AllToys>,
           loader: () => fetch('http://localhost:5000/toys')
+        },
+        {
+          path:'/update/:id',
+          element:<Update></Update>,
+          loader:({params}) => fetch(`http://localhost:5000/toys/${params.id}`)
         }
       ]
     },
