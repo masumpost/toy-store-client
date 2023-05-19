@@ -1,0 +1,16 @@
+[
+    {
+      "id": 1,
+      "picture": "https://i.ibb.co/ctZsMfW/cars4.jpg",
+      "name": "Product 1",
+      "price": "$19.99",
+      "rating": 4.5
+    },
+    {
+      "id": 2,
+      "picture": "https://i.ibb.co/TTzdCXS/car7.jpg",
+      "name": "Product 2",
+      "price": "$29.99",
+      "rating": 3.8
+    }
+]

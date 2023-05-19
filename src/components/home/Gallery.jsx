@@ -1,6 +1,6 @@
 const Gallery = () => {
   return (
-    <div>
+    <div data-aos="fade-zoom-in">
       <h1 className="text-center font-bold text-4xl text-red-600 my-8">
         Top Sale Babies Car Toys
       </h1>
