@@ -29,13 +29,13 @@ const Navbar = () => {
               <NavLink className="${isActive ? 'text-blue-500' : 'text-gray-500'}" to='/'>Home</NavLink>
             </li>
             <li tabIndex={0}>
-              <NavLink>All Toys</NavLink>
+              <NavLink to='/allToys'>All Toys</NavLink>
             </li>
             <li>
-              <NavLink>My Toys</NavLink>
+              <NavLink to='myToys'>My Toys</NavLink>
             </li>
             <li>
-              <NavLink>Add a Toys</NavLink>
+              <NavLink to='/addToys'>Add a Toys</NavLink>
             </li>
             <li>
               <NavLink to='/blogs'>Blogs</NavLink>
@@ -53,19 +53,19 @@ const Navbar = () => {
             <NavLink to='/'>Home</NavLink>
           </li>
           <li>
-            <NavLink>All Toys</NavLink>
+            <NavLink to='/allToys'>All Toys</NavLink>
           </li>
           <li tabIndex={0}>
-            <NavLink>My Toys</NavLink>
+            <NavLink to='myToys'>My Toys</NavLink>
           </li>
           <li>
-            <NavLink>Add a Toys</NavLink>
+            <NavLink to='/addToys'>Add a Toys</NavLink>
           </li>
           <li>
-            <NavLink to="/blogs">Blogs</NavLink>
+            <NavLink to='/blogs'>Blogs</NavLink>
           </li>
           <li>
-            <NavLink to="/login">Login</NavLink>
+            <NavLink to='/login'>Login</NavLink>
           </li>
         </ul>
       </div>

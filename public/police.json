@@ -2,14 +2,14 @@
     {
       "id": 1,
       "picture": "https://i.ibb.co/5Yn03NR/police1.png",
-      "name": "Product 1",
+      "name": "secret police",
       "price": "$19.99",
       "rating": 4.5
     },
     {
       "id": 2,
       "picture": "https://i.ibb.co/wB0bF9b/police2.jpg",
-      "name": "Product 2",
+      "name": "Normal police",
       "price": "$29.99",
       "rating": 3.8
     }

@@ -47,29 +47,29 @@ const ToyTabs = () => {
      </div>
 
       <TabPanel>
-        <h2 className='text-2xl text-center text-green-600 font-bold'>Babies car toys</h2>
+        <h2 className='text-2xl text-center text-green-600 font-bold my-5'>Babies car toys</h2>
         {/* Add your content for Tab 1 */}
 
-        <div className='flex justify-around'>
+        <div className='md:flex justify-around gap-5'>
         {
           cars.map(car => <Cards key={car.id} data={car}></Cards>)
         }
         </div>
       </TabPanel>
       <TabPanel>
-        <h2 className='text-2xl text-center text-red-600 font-bold'>Babies Police Car toys</h2>
+        <h2 className='text-2xl text-center text-red-600 font-bold my-5'>Babies Police Car toys</h2>
         {/* Add your content for Tab 2 */}
 
-       <div className='flex justify-around'>
+       <div className='md:flex justify-around gap-5'>
         {
           polices.map(police => <Cards key={police.id} data={police}></Cards>)
         }
        </div>
       </TabPanel>
       <TabPanel>
-        <h2 className='text-2xl text-center text-orange-600 font-bold'>Babies tracks toys</h2>
+        <h2 className='text-2xl text-center text-orange-600 font-bold my-5'>Babies tracks toys</h2>
         {/* Add your content for Tab 3 */}
-       <div className='flex justify-around'>
+       <div className='md:flex justify-around gap-5'>
         {
           tracks.map(track => <Cards key={track.id} data={track}></Cards>)
         }

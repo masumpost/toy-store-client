@@ -2,14 +2,14 @@
     {
       "id": 1,
       "picture": "https://i.ibb.co/Bz5WCQz/track1.jpg",
-      "name": "Product 1",
+      "name": "Normal track",
       "price": "$19.99",
       "rating": 4.5
     },
     {
       "id": 2,
       "picture": "https://i.ibb.co/s30STPY/track2.jpg",
-      "name": "Product 2",
+      "name": "Digital Track",
       "price": "$29.99",
       "rating": 3.8
     }
