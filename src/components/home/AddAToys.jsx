@@ -1,12 +1,52 @@
+import Swal from 'sweetalert2'
+
+
 const AddAToys = () => {
 
-    
+    const handelAddToy = event => {
+        event.preventDefault()
+        const form = event.target;
+        const picture = form.picture.value;
+        const name = form.name.value;
+        const sellerName = form.sellerName.value;
+        const sellerEmail = form.sellerEmail.value;
+        const subCategory = form.subCategory.value;
+        const price = form.price.value;
+        const rating = form.rating.value;
+        const quantity = form.quantity.value;
+        const description = form.description.value;
+
+        const addToy = {picture, name, sellerName, sellerEmail, subCategory, price, rating, quantity, description};
+        
+        console.log(addToy);
+
+
+        fetch('http://localhost:5000/toys', {
+            method:'POST',
+            headers: {
+                'content-type':'application/json'
+            },
+            body: JSON.stringify(addToy)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'success!',
+                    text: 'Toy Added SuccessFully',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                  })
+            }
+        })
+    }
 
   return (
     <div>
       <h2 className="text-3xl font-bold text-center my-8">Add A Toy</h2>
 
-      <form>
+      <form onSubmit={handelAddToy}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* 1 */}
       <div className="form-control">
@@ -62,7 +102,7 @@ const AddAToys = () => {
             type="email"
             placeholder="seller@mail.com"
             className="input input-bordered w-full"
-            name="email"
+            name="sellerEmail"
           />
         </label>
       </div>
