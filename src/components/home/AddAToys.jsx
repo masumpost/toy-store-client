@@ -1,4 +1,7 @@
 const AddAToys = () => {
+
+    
+
   return (
     <div>
       <h2 className="text-3xl font-bold text-center my-8">Add A Toy</h2>
