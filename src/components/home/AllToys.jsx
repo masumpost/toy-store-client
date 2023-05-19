@@ -10,7 +10,7 @@ const AllToys = () => {
   return (
     <div>
       <h2 className="text-center font-bold text-3xl my-7">
-        All Toys: {toys.length}
+        Here is All Toys
       </h2>
 
       <div>
