@@ -51,7 +51,7 @@ const Blogs = () => {
       </div>
       <div className="shadow-xl p-4 my-4">
         <h3 className="text-2xl font-semibold my-4">4.What is MongoDB aggregate and how does it work? </h3>
-        <p>Answer: MongoDB's aggregate function is used for advanced data processing and analysis. It takes an array of stages as input, each representing a specific operation on the data. The stages are processed sequentially, allowing for complex computations, filtering, grouping, sorting, and more. The aggregate function enables powerful data manipulation and analysis, extracting valuable insights from MongoDB collections.</p>
+        <p>Answer: MongoDBs aggregate function is used for advanced data processing and analysis. It takes an array of stages as input, each representing a specific operation on the data. The stages are processed sequentially, allowing for complex computations, filtering, grouping, sorting, and more. The aggregate function enables powerful data manipulation and analysis, extracting valuable insights from MongoDB collections.</p>
       </div>
     </div>
   );
