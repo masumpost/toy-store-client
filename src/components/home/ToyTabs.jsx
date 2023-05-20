@@ -4,6 +4,7 @@ import 'react-tabs/style/react-tabs.css';
 import Cards from '../pages/Cards';
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import moment from 'moment/moment';
 
 
 const ToyTabs = () => {
@@ -41,6 +42,13 @@ const ToyTabs = () => {
     },[]);
 
     return (
+      <>
+        <div className='h-32 bg-amber-300 my-10 rounded-xl'>
+        <h5 className='text-center text-3xl font-bold text-black my-5'>Today is.....</h5>
+        <h1 className='text-black text-4xl font-bold text-center my-auto'>{moment().format("dddd, MMMM D, YYYY h:mm:ss a")}</h1>
+       
+        </div>
+        
       <div className='my-8' data-aos="fade-left">
         
         <Tabs selectedIndex={activeTab} onSelect={handleTabChange}>
@@ -83,6 +91,7 @@ const ToyTabs = () => {
       </TabPanel>
     </Tabs>
       </div>
+      </>
     );
 };
 
