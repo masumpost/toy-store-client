@@ -1,7 +1,12 @@
 import {Link} from 'react-router-dom'
 import { FaGoogle } from 'react-icons/fa';
+import { useContext } from 'react';
+import { AuthContext } from '../../porviders/AuthProviders';
 
 const Login = () => {
+
+  const {signIn} = useContext(AuthContext);
+
 
   const handelLogin = event => {
     event.preventDefault();
@@ -10,6 +15,16 @@ const Login = () => {
     const password = form.password.value;
     const user = {email, password}
     console.log(user);
+
+    signIn(email, password)
+    .then(result => {
+      const LoggedUser = result.user;
+      console.log(LoggedUser)
+      form.reset()
+    })
+    .catch(error => {
+      console.log(error)
+    })
   }
 
   return (
