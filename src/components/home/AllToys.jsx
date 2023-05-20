@@ -3,6 +3,7 @@ import Row from "../pages/Row";
 
 const AllToys = () => {
   const toys = useLoaderData();
+  console.log(toys)
 
   console.log(toys);
 

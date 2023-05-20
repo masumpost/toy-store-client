@@ -1,6 +1,14 @@
+import Marquee from "react-fast-marquee";
+
 const Banner = () => {
   return (
-    <div
+    <div className="space-y-4">
+      <div className="h-24 bg-slate-50 rounded-xl">
+      <Marquee>
+          <h2 className="text-3xl font-bold text-red-800 mt-8">This is a babies toy selling website . You can find here all car types of toy. Like car toy, bas toy, police car toy and others</h2>
+      </Marquee>
+      </div>
+      <div
       className="hero h-96"
       style={{
         backgroundImage: `url("https://i.ibb.co/9wQVgZ4/cartoys.jpg")`,
@@ -16,6 +24,7 @@ const Banner = () => {
           <button className="btn btn-primary">Lets Explore</button>
         </div>
       </div>
+    </div>
     </div>
   );
 };

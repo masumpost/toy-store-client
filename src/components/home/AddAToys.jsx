@@ -21,7 +21,7 @@ const AddAToys = () => {
         console.log(addToy);
 
 
-        fetch('http://localhost:5000/toys', {
+        fetch('https://toy-store-server.vercel.app/toys', {
             method:'POST',
             headers: {
                 'content-type':'application/json'
@@ -38,6 +38,7 @@ const AddAToys = () => {
                     icon: 'success',
                     confirmButtonText: 'Cool'
                   })
+                  form.reset();
             }
         })
     }
@@ -66,7 +67,7 @@ const AddAToys = () => {
         {/* 2 */}
       <div className="form-control">
         <label className="label">
-          <span className="label-text">Your Name</span>
+          <span className="label-text">Toy Name</span>
         </label>
         <label className="input-group">
           <input
