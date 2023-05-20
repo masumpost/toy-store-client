@@ -43,11 +43,14 @@ const ToyTabs = () => {
 
     return (
       <>
-        <div className='h-32 bg-amber-300 my-10 rounded-xl'>
-        <h5 className='text-center text-3xl font-bold text-black my-5'>Today is.....</h5>
+        <div className='md:h-32 bg-amber-300 my-10 rounded-xl p-5 shadow-xl'>
+        <h5 className='text-center text-4xl font-bold text-black my-2'>Today is.....</h5>
         <h1 className='text-black text-4xl font-bold text-center my-auto'>{moment().format("dddd, MMMM D, YYYY h:mm:ss a")}</h1>
        
         </div>
+
+
+        <h1 className='text-center text-3xl font-bold underline underline-offset-2 text-blue-700 mt-28 mb-5'>Shop By Category</h1>
         
       <div className='my-8' data-aos="fade-left">
         
