@@ -1,11 +1,15 @@
-import {Link} from 'react-router-dom'
+import {Link,useLocation, useNavigate} from 'react-router-dom'
 import { FaGoogle } from 'react-icons/fa';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../porviders/AuthProviders';
 
 const Login = () => {
-
-  const {signIn} = useContext(AuthContext);
+  const [error, setError] = useState('');
+  const {signIn, googleLoggedIn} = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location)
+  const from = location?.state?.from?.pathname || '/';
 
 
   const handelLogin = event => {
@@ -20,10 +24,24 @@ const Login = () => {
     .then(result => {
       const LoggedUser = result.user;
       console.log(LoggedUser)
-      form.reset()
+      navigate(from, { replace: true })
+      form.reset();
+    })
+    .catch(error => {
+      console.log(error.massage)
+      setError(error.message);
+    })
+  }
+
+  const handelGoogle = () => {
+    googleLoggedIn()
+    .then(result => {
+      const user = result.user;
+      console.log(user)
     })
     .catch(error => {
       console.log(error)
+      setError(error.message)
     })
   }
 
@@ -75,9 +93,10 @@ const Login = () => {
             <p className='my-2'><>New in Babys toy? <span className='font-bold'><Link to="/register">Register</Link></span></></p>
             <div className='text-center'>
               <p className='font-bold'>or</p>
-              <h6 className='flex items-center gap-2 justify-center my-2 bg-slate-500 p-3 rounded-md text-white font-semibold cursor-pointer'>Sign In With Google <span className='text-blue-800 text-2xl'><FaGoogle /></span></h6>
+              <h6 className='flex items-center gap-2 justify-center my-2 bg-slate-500 p-3 rounded-md text-white font-semibold cursor-pointer' onClick={handelGoogle}>Sign In With Google <span className='text-blue-800 text-2xl'><FaGoogle /></span></h6>
             </div>
           </div>
+          <p className='text-center font-semibold text-red-600 my-3'>{error}</p>
          </form>
         </div>
       </div>
