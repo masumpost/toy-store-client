@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
+
 const Cards = ({data}) => {
 
     console.log(data)
 
-    const{picture, name, price, rating} = data;
+    const{_id,picture, name, price, rating} = data;
 
   return (
     <div className="card w-full bg-base-100 shadow-xl"  data-aos="fade-left">
@@ -18,7 +20,9 @@ const Cards = ({data}) => {
         <h2 className="card-title">Price: {price}</h2>
         <h2 className="card-title">Rating: {rating}</h2>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">View Details</button>
+        <Link to={`/details/${_id}`}>
+          <button className="btn btn-primary btn-sm">Details</button>
+        </Link>
         </div>
       </div>
     </div>

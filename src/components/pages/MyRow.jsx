@@ -37,7 +37,7 @@ const MyRow = ({ toy, toys, setToys }) => {
       <td>{sellerName}</td>
       <td>{name}</td>
       <td>{subCategory}</td>
-      <td>{price}</td>
+      <td>$ {price}</td>
       <td>{quantity}</td>
       <td>
          <Link to={`/update/${_id}`}>

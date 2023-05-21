@@ -1,6 +1,8 @@
 import Marquee from "react-fast-marquee";
 
 const Banner = () => {
+
+
   return (
     <div className="space-y-4">
       <div className="h-24 bg-slate-50 rounded-xl">

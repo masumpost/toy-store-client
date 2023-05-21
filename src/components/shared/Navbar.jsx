@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { NavLink} from 'react-router-dom'
 import { AuthContext } from '../../porviders/AuthProviders';
+import { FaUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
 
@@ -43,13 +44,17 @@ const Navbar = () => {
               <NavLink to='/allToys'>All Toys</NavLink>
             </li>
             <li>
-              <NavLink to='myToys'>My Toys</NavLink>
-            </li>
-            <li>
-              <NavLink to='/addToys'>Add a Toys</NavLink>
-            </li>
-            <li>
               <NavLink to='/blogs'>Blogs</NavLink>
+            </li>
+            <li>
+             {
+              user?  <NavLink to='myToys'>My Toys</NavLink> : ''
+             }
+            </li>
+            <li>
+             {
+              user?  <NavLink to='/addToys'>Add a Toys</NavLink> : ''
+             }
             </li>
             <li>
               {
@@ -66,28 +71,39 @@ const Navbar = () => {
             <NavLink to='/'>Home</NavLink>
           </li>
           <li>
-            <NavLink to='/allToys'>All Toys</NavLink>
-          </li>
-          <li tabIndex={0}>
-            <NavLink to='myToys'>My Toys</NavLink>
-          </li>
-          <li>
-            <NavLink to='/addToys'>Add a Toys</NavLink>
-          </li>
-          <li>
             <NavLink to='/blogs'>Blogs</NavLink>
           </li>
           <li>
-             {
-                user? <><span>{user.email}</span> <button onClick={handelLogout} className='btn btn-primary btn-sm'>SignOut</button></> : <NavLink to='/login'>Login</NavLink>
-              }
+            <NavLink to='/allToys'>All Toys</NavLink>
           </li>
+          <li tabIndex={0}>
+            {
+              user? <NavLink to='myToys'>My Toys</NavLink> : ''
+            }
+          </li>
+          <li>
+            {
+              user? <NavLink to='/addToys'>Add a Toys</NavLink> : ''
+            }
+          </li>
+         
+          
         </ul>
       </div>
-      <div className="navbar-end avatar">
-          <div className="w-8 rounded-full">
-            <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-          </div>
+      <div className="navbar-end avatar flex gap-4 items-center">
+              
+             <div>
+             {
+              user? <FaUserCircle title={user.email} className='text-4xl items-center mr-2'></FaUserCircle> : ''
+             }
+             </div>
+
+              <div>
+              {
+                user? <> <button onClick={handelLogout} className='btn btn-primary mt-2'>LogOut</button></> : <NavLink to='/login'><button className='btn btn-primary mt-2'>Login</button></NavLink>
+              }
+              </div>
+          
       </div>
     </div>
   );

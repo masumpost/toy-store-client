@@ -24,21 +24,30 @@ const ToyTabs = () => {
 
 
     useEffect(() =>{
-      fetch('car.json')
+      fetch('https://toy-store-server.vercel.app/toys')
       .then(res=>res.json())
-      .then(data => setCars(data));
+      .then(toies => {
+       let result = toies.filter(toy => toy.subCategory === 'cars')
+        setCars(result)
+      });
     },[]);
 
     useEffect(() => {
-      fetch('police.json')
+      fetch('https://toy-store-server.vercel.app/toys')
       .then(res => res.json())
-      .then(data => setPolices(data));
+      .then(toies => {
+        let result = toies.filter(toy => toy.subCategory === 'police')
+         setPolices(result)
+       });
     },[]);
 
     useEffect(()=>{
-      fetch('track.json')
+      fetch('https://toy-store-server.vercel.app/toys')
       .then(res=> res.json())
-      .then(data => setTracks(data));
+      .then(toies => {
+        let result = toies.filter(toy => toy.subCategory === 'track')
+         setTracks(result)
+       });
     },[]);
 
     return (
@@ -69,7 +78,7 @@ const ToyTabs = () => {
 
         <div className='md:flex justify-around gap-5' data-aos="fade-up">
         {
-          cars.map(car => <Cards key={car.id} data={car}></Cards>)
+          cars.slice(0,2).map(car => <Cards key={car.id} data={car}></Cards>)
         }
         </div>
       </TabPanel>
@@ -79,7 +88,7 @@ const ToyTabs = () => {
 
        <div className='md:flex justify-around gap-5' data-aos="fade-up">
         {
-          polices.map(police => <Cards key={police.id} data={police}></Cards>)
+          polices.slice(0,2).map(police => <Cards key={police.id} data={police}></Cards>)
         }
        </div>
       </TabPanel>
@@ -88,7 +97,7 @@ const ToyTabs = () => {
         {/* Add your content for Tab 3 */}
        <div className='md:flex justify-around gap-5' data-aos="fade-up">
         {
-          tracks.map(track => <Cards key={track.id} data={track}></Cards>)
+          tracks.slice(0,2).map(track => <Cards key={track.id} data={track}></Cards>)
         }
        </div>
       </TabPanel>
