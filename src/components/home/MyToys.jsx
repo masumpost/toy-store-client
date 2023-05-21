@@ -1,12 +1,19 @@
-import { useLoaderData } from "react-router-dom";
 import MyRow from "../pages/MyRow";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../porviders/AuthProviders";
 
 const MyToys = () => {
+    const {user} = useContext(AuthContext);
+    const [toys, setToys] = useState([]);
 
-    const loadedToys = useLoaderData();
 
-    const [toys, setToys] = useState(loadedToys)
+    useEffect(()=> {
+        fetch(`https://toy-store-server.vercel.app/myToys/${user?.email}`)
+        .then((res) => res.json())
+        .then(data => {
+            setToys(data)
+        })
+    },[user]);
 
     return (
         <div>
