@@ -17,7 +17,7 @@ const MyToys = () => {
 
 
   useEffect(() => {
-    const sortedToys = [...toys]; // Create a copy of the toys array
+    const sortedToys = [...toys]; 
     if (sortingOrder === "ascending") {
       sortedToys.sort((a, b) => a.price - b.price);
     } else if (sortingOrder === "descending") {
@@ -46,10 +46,10 @@ const MyToys = () => {
           className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
         >
           <li>
-            <a onClick={() => handleSortByPrice("ascending")}>Ascending</a>
+            <a onClick={() => handleSortByPrice('ascending')}>Ascending</a>
           </li>
           <li>
-            <a onClick={() => handleSortByPrice("descending")}>Descending</a>
+            <a onClick={() => handleSortByPrice('descending')}>Descending</a>
           </li>
         </ul>
       </div>
