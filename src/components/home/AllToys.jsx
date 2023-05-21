@@ -1,18 +1,33 @@
 import { useLoaderData } from "react-router-dom";
 import Row from "../pages/Row";
+import { useState } from "react";
 
 const AllToys = () => {
-  const toys = useLoaderData();
+    const loadedToys = useLoaderData();
+
+    
+    const [toys, setToys] = useState(loadedToys);
+    const [searchText , setSearchText] = useState('');
+    console.log(searchText);
+  
+  
+
+
+
   console.log(toys)
 
-  console.log(toys);
-
+  const handelSearch = () => {
+    fetch(` https://toy-store-server.vercel.app/searchByName/${searchText}`)
+    .then(res => res.json())
+    .then(data => setToys(data));
+  }
 
   return (
     <div>
-      <h2 className="text-center font-bold text-3xl my-7">
-        Here is All Toys
-      </h2>
+      <div className="flex gap-2 justify-center my-8">
+        <input type="text" onChange={(e) => setSearchText(e.target.value)} placeholder="Type toy name here" className="input input-bordered input-sm w-full max-w-xs" />
+        <button onClick={handelSearch} className="btn btn-primary btn-sm">Search</button>
+      </div>
 
       <div>
         <div className="overflow-x-auto w-full">
